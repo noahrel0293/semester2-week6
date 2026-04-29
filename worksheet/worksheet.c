@@ -19,7 +19,6 @@
  */
 
 #include "acutest.h"
-
 /* ============================================================
  * FUNCTION PROTOTYPES - Do not modify these
  * ============================================================ */
@@ -119,7 +118,8 @@ void reverse_array(int *arr, int n) {
   int i;
   for(i = 0; i < (n/2); i++){
     int c = *(arr + i);
-    *(arr + i) = *(arr - 1 - i);
+    *(arr + i) = arr[n - 1 - i];
+    *(arr + n - 1 - i) = c;
   }
 }
 
@@ -170,11 +170,11 @@ double average(int *arr, int n) {
 int find_max(int *arr, int n, int *index) {
   // TODO: Implement this function
   int i;
-  int max;
+  int max = -99999999999999;
   for(i=0; i<n; i++){
-    if(*(arr+i)>max){
+    if(arr[i]>max){
       max = *(arr+i);
-      *index = &(*(arr+i));
+      *index = *(arr+i);
     }
   }
   return 0; // Replace this
