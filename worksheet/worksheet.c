@@ -172,12 +172,12 @@ int find_max(int *arr, int n, int *index) {
   int i;
   int max = -99999999999999;
   for(i=0; i<n; i++){
-    if(arr[i]>max){
+    if(*(arr+i)>max){
       max = *(arr+i);
-      *index = *(arr+i);
+      *index = i;
     }
   }
-  return 0; // Replace this
+  return max; // Replace this
 }
 
 /* ============================================================
